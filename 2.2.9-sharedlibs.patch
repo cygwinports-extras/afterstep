@@ -1,0 +1,74 @@
+--- origsrc/AfterStep-2.2.9/libASGTK/Makefile.in	2007-03-08 09:07:04.000000000 -0600
++++ src/AfterStep-2.2.9/libASGTK/Makefile.in	2010-01-11 00:15:54.311221300 -0600
+@@ -16,14 +16,14 @@ LIB_DIR_NAME    = libASGTK
+ LIB_NAME        = LIBASGTK
+ LIB_STATIC      = libASGTK.a
+ LIB_SHARED      = libASGTK.so
+-LIB_SHARED_CYG  = cygASGTK.dll
++LIB_SHARED_CYG  = cygASGTK-$(LIBVERMAJOR).dll
+ LIB_SHARED_CYG_AR  = libASGTK.dll.a
+ LIBVER          = @libasgtk_version@
+ LIBVERMAJOR     = @libasgtk_version_major@
+ 
+ INCS_PRIVATE	= @GTK_INCLUDES@
+ 
+-LIBS_PRIVATE      = ../src/afterstep/$(LIB_ASGTK) ../src/afterstep/$(LIB_AFTERCONF) ../src/afterstep/$(LIB_AFTERSTEP) \
++LIBS_PRIVATE      = ../src/afterstep/$(LIB_AFTERCONF) ../src/afterstep/$(LIB_AFTERSTEP) \
+ 		    ../src/afterstep/$(LIB_AFTERIMAGE) ../src/afterstep/$(LIB_AFTERBASE) \
+ 		    @GTK_LIBS@ $(LIBS_AFTERIMAGE)
+ 
+--- origsrc/AfterStep-2.2.9/libAfterBase/Makefile.in	2007-04-20 17:10:45.000000000 -0500
++++ src/AfterStep-2.2.9/libAfterBase/Makefile.in	2010-01-10 23:05:17.409884400 -0600
+@@ -41,7 +41,7 @@ LIB_DIR_NAME	= libAfterBase
+ LIB_NAME        = LIBAFTERBASE
+ LIB_STATIC      = libAfterBase.a
+ LIB_SHARED      = libAfterBase.so
+-LIB_SHARED_CYG  = cygAfterBase.dll
++LIB_SHARED_CYG  = cygAfterBase-$(LIBVERMAJOR).dll
+ LIB_SHARED_CYG_AR  = libAfterBase.dll.a
+ LIBVER          = 0.99
+ LIBVERMAJOR     = 0
+--- origsrc/AfterStep-2.2.9/libAfterConf/Makefile.in	2008-01-07 15:39:51.000000000 -0600
++++ src/AfterStep-2.2.9/libAfterConf/Makefile.in	2010-01-11 00:20:32.461130600 -0600
+@@ -2,8 +2,8 @@
+ # Copyright (c) 1998, Guylhem AZNAR <guylhem@oeil.qc.ca>
+ #
+ 
+-LIBS_PRIVATE      = ../libAfterConf/libAfterConf.a ../libAfterStep/libAfterStep.a\
+-		    ../libAfterImage/libAfterImage.a ../libAfterBase/libAfterBase.a
++LIBS_PRIVATE      = ../src/afterstep/$(LIB_AFTERSTEP) \
++		../src/afterstep/$(LIB_AFTERIMAGE) ../src/afterstep/$(LIB_AFTERBASE)
+ 
+ LIB_INCS= afterconf.h
+ 
+@@ -18,7 +18,7 @@ LIB_DIR_NAME    = libAfterConf
+ LIB_NAME        = LIBAFTERCONF
+ LIB_STATIC      = libAfterConf.a
+ LIB_SHARED      = libAfterConf.so
+-LIB_SHARED_CYG  = cygAfterConf.dll
++LIB_SHARED_CYG  = cygAfterConf-$(LIBVERMAJOR).dll
+ LIB_SHARED_CYG_AR  = libAfterConf.dll.a
+ LIBVER          = @libafterconf_version@
+ LIBVERMAJOR     = @libafterconf_version_major@
+--- origsrc/AfterStep-2.2.9/libAfterImage/Makefile.in	2008-12-17 11:29:14.000000000 -0600
++++ src/AfterStep-2.2.9/libAfterImage/Makefile.in	2010-01-10 23:06:33.348227900 -0600
+@@ -65,7 +65,7 @@ LIB_DIR_NAME    = libAfterImage
+ LIB_NAME        = LIBAFTERIMAGE
+ LIB_STATIC      = libAfterImage.a
+ LIB_SHARED      = libAfterImage.so
+-LIB_SHARED_CYG  = cygAfterImage.dll
++LIB_SHARED_CYG  = cygAfterImage-$(LIBVERMAJOR).dll
+ LIB_SHARED_CYG_AR  = libAfterImage.dll.a
+ LIBVER          = 0.99
+ LIBVERMAJOR     = 0
+--- origsrc/AfterStep-2.2.9/libAfterStep/Makefile.in	2006-01-23 17:52:02.000000000 -0600
++++ src/AfterStep-2.2.9/libAfterStep/Makefile.in	2010-01-10 23:06:42.331741700 -0600
+@@ -33,7 +33,7 @@ LIB_DIR_NAME    = libAfterStep
+ LIB_NAME        = LIBAFTERSTEP
+ LIB_STATIC      = libAfterStep.a
+ LIB_SHARED      = libAfterStep.so
+-LIB_SHARED_CYG  = cygAfterStep.dll
++LIB_SHARED_CYG  = cygAfterStep-$(LIBVERMAJOR).dll
+ LIB_SHARED_CYG_AR  = libAfterStep.dll.a
+ LIBVER          = @libafterstep_version@
+ LIBVERMAJOR     = @libafterstep_version_major@

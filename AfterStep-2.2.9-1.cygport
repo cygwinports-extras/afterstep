@@ -1,0 +1,25 @@
+DESCRIPTION="NeXTStep-like window manager"
+HOMEPAGE="http://www.afterstep.org/"
+SRC_URI="mirror://sourceforge/afterstep/${P}.tar.bz2"
+
+PATCH_URI="
+	mirror://portage/x11-wm/afterstep/files/no-alternatives-2.2.9.patch
+	2.2.9-sharedlibs.patch
+"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	cygconf \
+		--enable-i18n \
+		--disable-staticlibs \
+		--enable-sharedlibs
+	cygmake
+}
+
+src_install() {
+	cd ${B}
+	cyginstall
+	dolib lib*/*.a
+	rm -f ${D}/usr/lib/*.dll
+}
